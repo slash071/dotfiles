@@ -1,0 +1,19 @@
+#!/bin/bash
+
+bright_icon='/usr/share/icons/Catppuccin-Macchiato/panel/16/gpm-brightness-lcd.svg'
+
+function send_notification() {
+	brightness=$(printf "%.0f\n" $(xbacklight))
+	dunstify -a "changebrightness" -u low -r 9992 -h int:value:"$brightness" -i "$bright_icon" "Brightness: $brightness%" -t 2000
+}
+
+case $1 in
+up)
+	xbacklight -inc 10
+	send_notification $1
+	;;
+down)
+	xbacklight -dec 10
+	send_notification $1
+	;;
+esac

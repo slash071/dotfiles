@@ -1,0 +1,31 @@
+#!/bin/bash
+
+vol_icon='/usr/share/icons/Catppuccin-Macchiato/panel/16/audio-volume-high.svg'
+vol_mute='/usr/share/icons/Catppuccin-Macchiato/panel/16/audio-volume-off.svg'
+
+function send_notification() {
+	volume=$(pamixer --get-volume)
+	dunstify -a "changevolume" -u low -r "9993" -h int:value:"$volume" -i "$vol_icon" "Volume: ${volume}%" -t 2000
+}
+
+case $1 in
+up)
+	# Set the volume on (if it was muted)
+	pamixer -u
+	pamixer -i 5 --allow-boost
+	send_notification $1
+	;;
+down)
+	pamixer -u
+	pamixer -d 5 --allow-boost
+	send_notification $1
+	;;
+mute)
+	pamixer -t
+	if $(pamixer --get-mute); then
+		dunstify -i "$vol_mute" -a "changevolume" -t 2000 -r 9993 -u low "Muted"
+	else
+		send_notification up
+	fi
+	;;
+esac

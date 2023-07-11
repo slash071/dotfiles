@@ -1,0 +1,95 @@
+#---------------------------------- wm independent hotkeys ---
+# terminal emulators
+super + Return
+	st -e fish
+
+super + shift + Return
+	alacritty
+
+# launchers
+super + space
+	rofi -show drun
+
+super + shift + space
+	rofi -show run
+
+# browsers
+super + b
+    chromium
+
+super + shift + b
+    firefox
+
+# telegram desktop
+super + control + t
+	telegram
+
+# text editors
+super + c 
+    gedit
+
+super + shift + c
+    code
+
+# video players
+super + v
+    vlc
+
+super + shift + v
+    smplayer
+
+# document viewers
+super + d
+	zathura
+
+super + shift + d
+    evince
+
+# file manager
+super + e
+    caja
+    
+# wallpaper utility
+super + n
+    nitrogen
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#--------------------------------------------- system keys ---
+# brightness control
+XF86MonBrightness{Up,Down}
+    changebrightness {up,down}
+
+# volume control
+XF86Audio{Raise,Lower}Volume
+	changevolume {up,down}
+
+# alternative volume control
+super + control + {Prior,Next}
+	changevolume {up,down}
+
+# mute volume
+super + control + Home
+	changevolume mute
+
+# capture screen
+Print
+	screenshot entire
+
+# Capture a window
+ctrl + Print
+    screenshot select
+
+# shutdown system
+ctrl + shift + Escape
+	systemctl poweroff
+
+# reboot system
+ctrl + shift + F2
+	systemctl reboot
+
+# lock screen 
+super + x
+	betterlockscreen -l

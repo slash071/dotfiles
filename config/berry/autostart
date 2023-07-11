@@ -1,0 +1,58 @@
+#!/bin/bash
+
+DIR0="$HOME/.config/sxhkd"
+DIR1="$HOME/.config/berry"
+
+pgrep -x sxhkd > /dev/null || sxhkd -c "$DIR1"/sxhkdrc "$DIR0"/sharedkeys &
+
+#-------------------------------------------- berry configs ---
+
+# workspaces
+berryc name_desktop 0 "I"
+berryc name_desktop 1 "II"
+berryc name_desktop 2 "III"
+berryc name_desktop 3 "IV"
+berryc name_desktop 4 "V"
+berryc name_desktop 5 "VI"
+
+# Set decoration geometry
+berryc border_width 		0
+berryc inner_border_width 	4
+# for laptop
+berryc title_height 		27
+# for pc
+#berryc title_height 		30
+# for laptop
+berryc edge_gap 			44 5 5 5
+# for pc
+#berryc edge_gap 			35 10 10 10
+
+# Set decoration colors
+berryc focus_color 			292D3E
+berryc unfocus_color 		292D3E
+berryc inner_focus_color 	694271
+berryc inner_unfocus_color 	496886
+berryc text_focus_color 	FFFFFF
+berryc text_unfocus_color 	011826
+
+# Other options
+berryc set_font 			"Iosevka-10"
+berryc smart_place 			"ture"
+berryc draw_text 			"true"
+berryc edge_lock 			"true"
+berryc json_status 			"true"
+berryc decorate_new 		"true"
+berryc pointer_interval 	0
+berryc manage 				Dialog|Toolbar|Menu|Splash|Utility 
+
+berryc move_mask 			"mod1"
+berryc move_button 			1
+berryc resize_mask 			"mod4"
+berryc resize_button 		3
+
+#----------------------------------- autostart applications ---
+bash ~/.config/polybar/nova/launch.sh
+nitrogen --restore
+picom -b -f
+dunst &
+xbanish

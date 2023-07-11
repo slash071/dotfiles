@@ -1,0 +1,28 @@
+#-------------------------------------------- Setup environment
+set sandbox none
+set guioptions none
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 8
+set font "Monospace 10"
+set selection-clipboard clipboard
+set recolor true
+
+#------------------------------------------------------ Mapping
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map i recolor
+map p print
+map g goto top
+
+#------------------------------------- Include additional files
+# include themes/ayu
+# include themes/batman
+# include themes/buttercream
+# include themes/macchiato
+include themes/dawn

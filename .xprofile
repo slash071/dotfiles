@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Keyboard layout
+setxkbmap -layout "us,ir" -option "grp:alt_caps_toggle" &
+
+# Cursor shape
+xsetroot -cursor_name left_ptr
+
+# Speedy keys
+#xset r rate 205 45
+
+# Environment variables set everywhere
+export EDITOR="nvim"
+export TERMINAL="st"
+export BROWSER="chromium"
+
+# For QT Themes
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+# Source additional files
+source ~/.config/lf/icons
+
+# XDG Paths
+# export XDG_CONFIG_HOME=$HOME/.config
+# export XDG_CACHE_HOME=$HOME/.cache
+# export XDG_DATA_HOME=$HOME/.local/share
+
+# zsh config dir
+# export ZDOTDIR=$HOME/.config/zsh

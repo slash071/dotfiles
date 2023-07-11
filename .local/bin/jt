@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+JOURNAL_FILE="/tmp/playground/journal.txt"
+TODAY_DATE=$(date '+%B %d')
+JDATE=$(jdate '+%D')
+
+mkdir -p "$(dirname "$JOURNAL_FILE")"
+
+if [[ ! -f "$JOURNAL_FILE" ]]; then
+  echo "Today is ${JDATE} (${TODAY_DATE})," > "$JOURNAL_FILE"
+  echo >> "$JOURNAL_FILE"
+fi
+
+# Check if $EDITOR is set before calling it
+if [[ -z "$EDITOR" ]]; then
+  echo "No editor set. Please set the \$EDITOR environment variable."
+  exit 1
+else
+  "$EDITOR" +$(wc -l < "$JOURNAL_FILE") "$JOURNAL_FILE"
+fi

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+output='Pictures/Captures/%b%d-%H%M%S.png'
+clipboard='xclip -selection clipboard -t image/png -i $f'
+capture_icon='/usr/share/icons/Catppuccin-Macchiato/actions/16/view-list-images.svg'
+
+case "$1" in
+    "entire") scrot "$output" -q 88 -e "$clipboard" || exit ;;
+	"select") scrot "$output" -q 88 --select --line mode=edge -e "$clipboard" || exit ;;
+		*) scrot "$output" || exit ;;
+esac
+
+dunstify -a "screenshot" -u low -r 9995 -i "$capture_icon" "Screenshot taken" -t 2000
