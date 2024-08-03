@@ -5,7 +5,7 @@
 
 | Software		| Name                                                                                                              |
 |-----------------------|-------------------------------------------------------------------------------------------------------|
-| Distribution		|  [Arch Linux](https://archlinux.org/)  |
+| Distribution		|  [Linux Mint](https://linuxmint.com/), [Arch Linux](https://archlinux.org/)  |
 | Graphical server  |  [Xorg](https://www.x.org/wiki/)  |
 | Window manager(s)		|   [bspwm](https://wiki.archlinux.org/title/Bspwm), [berrywm](https://berrywm.org/)  |
 | Shell  |  [fish](https://fishshell.com/), [bash](https://www.gnu.org/software/bash/)  |
